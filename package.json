@@ -1,0 +1,27 @@
+{
+  "name": "expensestracker",
+  "version": "1.0.0",
+  "description": "Expense Tracker for track your monthly expenses and savings",
+  "main": "index.js",
+  "dependencies": {
+    "eslint": "^6.0.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kishanjasani/ExpensesTracker.git"
+  },
+  "keywords": [
+    "Expenses",
+    "Savings"
+  ],
+  "author": "Kishan Jasani",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kishanjasani/ExpensesTracker/issues"
+  },
+  "homepage": "https://github.com/kishanjasani/ExpensesTracker#readme"
+}
