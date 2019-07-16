@@ -1,0 +1,79 @@
+/**********************************************
+*** GENERAL
+**********************************************/
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	color: #555;
+	font-size: 16px;
+	font-weight: 400;
+	background-color: #f1f1ff;
+}
+
+/**********************************************
+*** Header
+**********************************************/
+.top {
+	background-image: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), url(./images/laptop.jpg);
+	background-size: cover;
+	background-position: center;
+	height: 300px;
+	color: #ffffff;
+}
+
+.budget {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding-top: 50px;
+}
+
+.budget__title {
+	font-size: 18px;
+	margin-bottom: 10px;
+}
+
+.budget__value {
+	font-weight: 300;
+	margin-bottom: 10px;
+	font-size: 46px;
+}
+
+.budget__income {
+	display: flex;
+	justify-content: space-between;
+	height: 46px;
+	width: 300px;
+	background-color: #28B9B5;
+	margin-bottom: 10px;
+}
+
+.budget__income--text, .budget__expense--text {
+	color: #444444;
+}
+
+.right {
+	display: flex;
+}
+
+.budget__expense {
+	display: flex;
+	width: 300px;
+	height: 46px;
+	background-color: #FF5049;
+	justify-content: space-between;
+}
+
+.budget__income, .budget__expense {
+	padding: 14px;
+	text-transform: uppercase;
+}
+
+.budget__expense--value {
+	margin-right: 8px;
+}
