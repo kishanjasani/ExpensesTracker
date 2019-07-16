@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Expence Tracker</title>
+	<link href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<header class="top">
+		<div class="budget">
+			<div class="budget__title">
+				Available Budget in %Month%:
+			</div>
+			<div class="budget__value">
+				+ 2,345.64
+			</div>
+			<div class="budget__income">
+				<div class="budget__income--text">INCOME</div>
+				<div class="right">
+					<div class="budget__income--value">+ 4,300.00</div>
+					<div class="budget__income--percentage">55%</div>
+				</div>
+			</div>
+			<div class="budget__expense">
+				<div class="budget__expense--text">EXPENSES</div>
+				<div class="right">
+					<div class="budget__expense--value">- 1,954.36</div>
+					<div class="budget__expense--percentage">45%</div>
+				</div>
+			</div>
+		</div>
+	</header>
+	<main>
+		<section class="expense-form">
+			<div class="add">
+				<div class="add__container">
+					<select name="add__type">
+						<option value="inc" selected>+</option>
+						<option value="desc">-</option>
+					</select>
+					<input type="text" class="add__desc" id="expenses-desc" placeholder="Add description">
+					<input type="text" class="add__value" id="expenses-value" placeholder="Value">
+					<button class="add__submit"><i class="ion-ios-checkmark-outline"></i></button>
+				</div>
+			</div>
+		</section>
+		<section class="main-container">
+			<div class="container">
+				<div class="income">
+					<h2 class="income__title">Income</h2>
+					<div class="income__list">
+						<div class="item" id="income-0">
+							<div class="item__description">Salary</div>
+							<div class="right">
+								<div class="item__value">+2100</div>
+								<div class="item__delete">
+									<button class="item__delete--btn"><i class="ion-ios-close-outline"></i></button>
+								</div>
+							</div>
+						</div>
+						<div class="item" id="income-1">
+							<div class="item__description">Sold House</div>
+							<div class="right">
+								<div class="item__value">+1500</div>
+								<div class="item__delete">
+									<button class="item__delete--btn"><i class="ion-ios-close-outline"></i></button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="expense">
+					<h2 class="expense__title">Expenses</h2>
+					<div class="expenses__list">
+						<div class="item" id="expenses-0">
+							<div class="item__description">Apartment Rent</div>
+							<div class="right">
+								<div class="item__value">- 1500</div>
+								<div class="item__delete">
+									<button class="item__delete--btn"><i class="ion-ios-close-outline"></i></button>
+								</div>
+							</div>
+						</div>
+						<div class="item" id="expenses-1">
+							<div class="item__description">Grocery Shopping</div>
+							<div class="right">
+								<div class="item__value">- 500</div>
+								<div class="item__delete">
+									<button class="item__delete--btn"><i class="ion-ios-close-outline"></i></button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	</main>
+	<footer>
+		<div class="copyright">
+				Copyright &copy; 2019 <span> Kishan Jasani </span>
+		</div>
+	</footer>
+</body>
+</html>
