@@ -77,3 +77,127 @@ body {
 .budget__expense--value {
 	margin-right: 8px;
 }
+
+/**********************************************
+*** Main
+**********************************************/
+
+.add {
+	background-color: #f7f7f7;
+	border-bottom: 1px solid #e7e7e7;
+	padding: 14px;
+	text-align: center;
+}
+
+.add__type {
+	border: 1px solid #e7e7e7;
+	width: 55px;
+	height: 42px;
+	background-color: #ffffff;
+	transition: border 0.3s;
+	border-radius: 5px;
+	margin-right: 10px;
+	font-size: 14px;
+	color: inherit;
+	font-weight: 300;
+}
+
+.add__desc {
+	width: 400px;;
+}
+
+.add__value {
+	width: 100px;
+}
+
+.add__desc, .add__value {
+	border: 1px solid #e7e7e7;
+	padding: 12px 15px;
+	height: 42px;
+	color: inherit;
+	font-size: 14px;
+	background-color: #ffffff;
+	transition: border 0.3s;
+	border-radius: 5px;
+	margin-right: 10px;
+}
+
+.add__submit {
+	font-size: 38px;
+	background: none;
+	color: #28B9B5;
+	border: none;
+	cursor: pointer;
+	vertical-align: middle;
+}
+
+.container {
+	display: flex;
+	justify-content: space-around;
+	margin-top: 50px;
+}
+
+.item {
+	display: flex;
+	justify-content: space-between;
+	width: 400px;
+	height: 39px;
+	font-size: 14px;
+	font-weight: 300;
+	border-top: 1px solid #e7e7e7;
+	border-bottom: 1px solid #e7e7e7;
+	padding: 10px;
+}
+
+.income__list .right {
+	color: #28B9B5;
+	font-weight: 400;
+}
+
+.expenses__list .right {
+	color: #FF5049;
+	font-weight: 400;
+}
+
+.item__delete--btn {
+	background: none;
+	border: none;
+	color: inherit;
+	font-size: 16px;
+	vertical-align: middle;
+	cursor: pointer;
+}
+
+.item__value {
+	margin-right: 10px;
+}
+
+.budget__expense--percentage {
+	margin-right: 8px;
+	background-color: #FF998F;
+	border-radius: 3px;
+	font-size: 11px;
+	font-weight: 400;
+	padding: 3px 0;
+	width: 34px;
+	text-align: center;
+}
+
+.income__title {
+	color: #28B9B5;
+}
+
+.expense__title {
+	color: #FF5049;
+}
+
+.income__title, .expense__title {
+	text-transform: uppercase;
+	font-weight: 400;
+	font-size: 18px;
+	margin-bottom: 15px;
+}
+
+.item__delete {
+	display: none;
+}
