@@ -53,7 +53,9 @@ var UIController = (function UIController() {
     inputType: '.add__type',
     inputDescription: '.add__desc',
     inputValue: '.add__value',
-    inputBtn: '.add__submit'
+    inputBtn: '.add__submit',
+    incomeContainer: '.income__list',
+    expenseContainer: '.expenses__list'
   };
 
   return {
@@ -64,6 +66,21 @@ var UIController = (function UIController() {
         description: document.querySelector(DOMString.inputDescription).value,
         value: document.querySelector(DOMString.inputValue).value
       };
+    },
+
+    addListItem: function addListItem(obj, type) {
+      var html; var newHtml; var element;
+      if (type === 'inc') {
+        element = DOMString.incomeContainer;
+        html = '<div class="item" id="income-%id%"><div class="item__description">%description%</div><div class="right"><div class="item__value">+%value%</div><div class="item__delete"><button class="item__delete--btn"><i class="ion-ios-close-outline"></i></button></div></div></div>';
+      } else if (type === 'exp') {
+        element = DOMString.expenseContainer;
+        html = '<div class="item" id="expenses-%id%"><div class="item__description">%description%</div><div class="right"><div class="item__value">-%value%</div><div class="budget__expense--percentage">45%</div><div class="item__delete"><button class="item__delete--btn"><i class="ion-ios-close-outline"></i></button></div></div></div>';
+      }
+      newHtml = html.replace('%id%', obj.id);
+      newHtml = newHtml.replace('%description%', obj.description);
+      newHtml = newHtml.replace('%value%', obj.value);
+      document.querySelector(element).insertAdjacentHTML('beforeend', newHtml);
     },
 
     getDOMString: function getDOMString() {
@@ -79,6 +96,7 @@ var controller = (function controller(bgtCtrl, uiCtrl) {
   var ctrlAddItem = function ctrlAddItem() {
     input = uiCtrl.getInput();
     newItem = budgetController.allItems(input.type, input.description, input.value);
+    uiCtrl.addListItem(newItem, input.type);
   };
 
   var setupEventListener = function setupEventListener() {
