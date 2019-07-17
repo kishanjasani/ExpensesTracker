@@ -64,7 +64,7 @@ var UIController = (function UIController() {
       return {
         type: document.querySelector(DOMString.inputType).value,
         description: document.querySelector(DOMString.inputDescription).value,
-        value: document.querySelector(DOMString.inputValue).value
+        value: parseFloat(document.querySelector(DOMString.inputValue).value)
       };
     },
 
@@ -83,6 +83,16 @@ var UIController = (function UIController() {
       document.querySelector(element).insertAdjacentHTML('beforeend', newHtml);
     },
 
+    clearFields: function clearFields() {
+      var field; var fieldArr;
+      field = document.querySelectorAll(`${DOMString.inputDescription}, ${DOMString.inputValue}`);
+      fieldArr = Array.prototype.slice.call(field);
+      fieldArr.forEach((current) => {
+        current.value = '';
+      });
+      fieldArr[0].focus();
+    },
+
     getDOMString: function getDOMString() {
       return DOMString;
     }
@@ -92,11 +102,21 @@ var UIController = (function UIController() {
 
 // Main App COntroller
 var controller = (function controller(bgtCtrl, uiCtrl) {
-  var input; var newItem;
   var ctrlAddItem = function ctrlAddItem() {
+    var input; var newItem;
+
+    // Get the field input data
     input = uiCtrl.getInput();
-    newItem = budgetController.allItems(input.type, input.description, input.value);
-    uiCtrl.addListItem(newItem, input.type);
+
+    if (input.description !== '' && !isNaN(input.value) && input.value > 0) {
+      // Add the item to budget controller
+      newItem = budgetController.allItems(input.type, input.description, input.value);
+      // Add the item to UI
+      uiCtrl.addListItem(newItem, input.type);
+      // Clear the field input
+      uiCtrl.clearFields();
+      // calculate and update budgets
+    }
   };
 
   var setupEventListener = function setupEventListener() {
