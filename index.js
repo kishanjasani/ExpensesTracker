@@ -182,6 +182,15 @@ var controller = (function controller(bgtCtrl, uiCtrl) {
     uiCtrl.displayBudget(budget);
   };
 
+  var updatePercentage = function updatePercentage() {
+    // Calculate budget Controller percentages
+
+    // Read percentages frtom budget controller
+
+    // Update the new UI with budget controller
+
+  };
+
   var ctrlAddItem = function ctrlAddItem() {
     var input; var newItem;
 
@@ -197,6 +206,8 @@ var controller = (function controller(bgtCtrl, uiCtrl) {
       uiCtrl.clearFields();
       // calculate and update budgets
       updateBudget();
+      // Calculate and update percentage
+      updatePercentage();
     }
   };
 
@@ -210,12 +221,12 @@ var controller = (function controller(bgtCtrl, uiCtrl) {
 
       // Delete Item from data structure
       bgtCtrl.deleteItem(type, id);
-
       // Delete item from UI
       uiCtrl.deleteListItem(itemId);
-
       // Update budget
       bgtCtrl.updateBudget();
+      // Calculate and update percentage
+      updatePercentage();
     }
   };
 
