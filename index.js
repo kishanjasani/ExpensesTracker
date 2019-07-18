@@ -54,6 +54,7 @@ var budgetController = (function budgetController() {
       data.allItems[type].push(newItem);
       return newItem;
     },
+
     calculateBudget: function calculateBudget() {
       // Calculate total income and expenses
       calculateTotal('exp');
@@ -67,6 +68,18 @@ var budgetController = (function budgetController() {
         data.percentage = -1;
       }
     },
+
+    deleteItem: function deleteItem(type, id) {
+      var ids; var index;
+      ids = data.allItems[type].map((current) => {
+        return current.id;
+      });
+      index = ids.indexOf(id);
+      if (index !== -1) {
+        data.allItems[type].splice(index, 1);
+      }
+    },
+
     getBudget: function getBudget() {
       return {
         budget: data.budget,
@@ -74,6 +87,10 @@ var budgetController = (function budgetController() {
         totalExp: data.totals.exp,
         percentage: data.percentage
       };
+    },
+
+    getTestingData: function getTestingData() {
+      return data.allItems;
     }
   };
 }());
@@ -117,6 +134,12 @@ var UIController = (function UIController() {
       newHtml = newHtml.replace('%description%', obj.description);
       newHtml = newHtml.replace('%value%', obj.value);
       document.querySelector(element).insertAdjacentHTML('beforeend', newHtml);
+    },
+
+    deleteListItem: function deleteListItem(selectorId) {
+      var el;
+      el = document.getElementById(selectorId);
+      el.parentNode.removeChild(el);
     },
 
     clearFields: function clearFields() {
@@ -183,7 +206,16 @@ var controller = (function controller(bgtCtrl, uiCtrl) {
     if (itemId) {
       splitId = itemId.split('-');
       type = splitId[0];
-      id = splitId[1];
+      id = parseInt(splitId[1]);
+
+      // Delete Item from data structure
+      bgtCtrl.deleteItem(type, id);
+
+      // Delete item from UI
+      uiCtrl.deleteListItem(itemId);
+
+      // Update budget
+      bgtCtrl.updateBudget();
     }
   };
 
