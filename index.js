@@ -90,7 +90,8 @@ var UIController = (function UIController() {
     budgetLabel: '.budget__value',
     incomeLabel: '.budget__income--value',
     expensesLabel: '.budget__expense--value',
-    expensesPercentage: '.budget__expense--percentage'
+    expensesPercentage: '.budget__expense--percentage',
+    container: '.container'
   };
 
   return {
@@ -107,10 +108,10 @@ var UIController = (function UIController() {
       var html; var newHtml; var element;
       if (type === 'inc') {
         element = DOMString.incomeContainer;
-        html = '<div class="item" id="income-%id%"><div class="item__description">%description%</div><div class="right"><div class="item__value">+%value%</div><div class="item__delete"><button class="item__delete--btn"><i class="ion-ios-close-outline"></i></button></div></div></div>';
+        html = '<div class="item" id="inc-%id%"><div class="item__description">%description%</div><div class="right"><div class="item__value">+%value%</div><div class="item__delete"><button class="item__delete--btn"><i class="ion-ios-close-outline"></i></button></div></div></div>';
       } else if (type === 'exp') {
         element = DOMString.expenseContainer;
-        html = '<div class="item" id="expenses-%id%"><div class="item__description">%description%</div><div class="right"><div class="item__value">-%value%</div><div class="budget__expense--percentage">45%</div><div class="item__delete"><button class="item__delete--btn"><i class="ion-ios-close-outline"></i></button></div></div></div>';
+        html = '<div class="item" id="exp-%id%"><div class="item__description">%description%</div><div class="right"><div class="item__value">-%value%</div><div class="budget__expense--percentage">45%</div><div class="item__delete"><button class="item__delete--btn"><i class="ion-ios-close-outline"></i></button></div></div></div>';
       }
       newHtml = html.replace('%id%', obj.id);
       newHtml = newHtml.replace('%description%', obj.description);
@@ -176,6 +177,16 @@ var controller = (function controller(bgtCtrl, uiCtrl) {
     }
   };
 
+  var ctrlDeleteItem = function ctrlDeleteItem(event) {
+    var itemId; var splitId; var type; var id;
+    itemId = event.target.parentNode.parentNode.parentNode.parentNode.id;
+    if (itemId) {
+      splitId = itemId.split('-');
+      type = splitId[0];
+      id = splitId[1];
+    }
+  };
+
   var setupEventListener = function setupEventListener() {
     var DOM = uiCtrl.getDOMString();
 
@@ -186,6 +197,8 @@ var controller = (function controller(bgtCtrl, uiCtrl) {
         ctrlAddItem();
       }
     });
+
+    document.querySelector(DOM.container).addEventListener('click', ctrlDeleteItem);
   };
 
   return {
