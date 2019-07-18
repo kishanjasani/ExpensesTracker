@@ -172,7 +172,7 @@ body {
 	margin-right: 10px;
 }
 
-.budget__expense--percentage {
+.budget__expense--percentage, .item__expense--percentage {
 	margin-right: 8px;
 	background-color: #FF998F;
 	border-radius: 3px;
