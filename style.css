@@ -206,6 +206,14 @@ body {
 	display: block;
 }
 
+.red-focus {
+	color: #FF5049;
+}
+
+.red-focus:focus {
+	border: 4px solid #FF5049;
+}
+
 /**********************************************
 *** Footer
 **********************************************/
